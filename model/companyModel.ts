@@ -1,31 +1,43 @@
 import mongoose from "mongoose";
 
-interface Iuser {
-  userName: string;
+interface iUser {
+  userNmae: string;
   email: string;
   password: string;
   token: string;
   verified: boolean;
-  OPT: string;
-  RCnumber: string;
-  UserNumber: string;
+  OTP: string;
+  RCNumber: string;
+  staffID: string;
 }
 
-interface IcompanyData extends Iuser, mongoose.Document {}
+interface icompanyData extends iUser, mongoose.Document {}
 
-const userSchema = new mongoose.Schema<Iuser>({
-  userName: {
-    type: String,
+const companyModel = new mongoose.Schema(
+  {
+    userName: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+    password: {
+      type: String,
+    },
+    OTP: {
+      type: String,
+    },
+    RCNumber: {
+      type: String,
+    },
+    token: {
+      type: String,
+    },
+    verified: {
+      type: String,
+    },
   },
-  email: {
-    type: String,
-  },
-  password: {
-    type: String,
-  },
-  token: {
-    type: String,
-  },
-});
+  { timestamps: true }
+);
 
-export default mongoose.model<IcompanyData>("user", userSchema);
+export default mongoose.model<icompanyData>("companies", companyModel);

@@ -1,11 +1,13 @@
 import express, { Application } from "express";
 import { Mainapp } from "./Mainapp";
+import { dbConfig } from "./config/db";
 
 const app: Application = express();
 Mainapp(app);
+dbConfig();
 
 const server = app.listen(5000, () => {
-  console.log(" Valerian server is ready to rock");
+  console.log(" Judith server is up and running");
 });
 
 process.on("uncaughtException", (err: Error) => {

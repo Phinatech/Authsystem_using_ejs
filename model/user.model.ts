@@ -13,25 +13,31 @@ interface Iuser {
 
 interface IuserData extends Iuser, mongoose.Document {}
 
-const userSchema = new mongoose.Schema<Iuser>({
-  userName: {
-    type: String,
+const userSchema = new mongoose.Schema<Iuser>(
+  {
+    userName: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+    password: {
+      type: String,
+    },
+    token: {
+      type: String,
+    },
+    verified: {
+      type: Boolean,
+    },
+    OPT: {
+      type: String,
+    },
+    RCnumber: {
+      type: String,
+    },
   },
-  email: {
-    type: String,
-  },
-  password: {
-    type: String,
-  },
-  token: {
-    type: String,
-  },
-  verified: {
-    type: Boolean,
-  },
-  OPT: {
-    type: String,
-  },
-});
+  { timestamps: true }
+);
 
 export default mongoose.model<IuserData>("user", userSchema);
