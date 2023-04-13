@@ -3,11 +3,13 @@ import { Mainapp } from "./Mainapp";
 import { dbConfig } from "./config/db";
 
 const app: Application = express();
+
+const Port = 5000;
 Mainapp(app);
 dbConfig();
 
-const server = app.listen(5000, () => {
-  console.log(" Judith server is up and running");
+const server = app.listen(Port, () => {
+  console.log(" Judith server is up and running", Port);
 });
 
 process.on("uncaughtException", (err: Error) => {

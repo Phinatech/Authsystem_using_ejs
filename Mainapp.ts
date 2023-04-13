@@ -8,12 +8,13 @@ const data = {
 };
 
 export const Mainapp = (app: Application) => {
-  app.set("view engine", "ejs");
-  app.use(express.json());
-  app.use(express.static("public"));
-  app.use(express.static(`${__dirname} "./public/assset`));
-  app.use(express.static(`${__dirname} "./public/css`));
-  app.use(cors());
+  app
+    .set("view engine", "ejs")
+    .use(express.json())
+    .use(express.static("public"))
+    .use(express.static(`${__dirname} "./public/assset`))
+    .use(express.static(`${__dirname} "./public/css`))
+    .use(cors());
 
   app.get("/view", (req: Request, res: Response) => {
     res.render("index", { data });
