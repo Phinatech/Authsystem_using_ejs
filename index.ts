@@ -9,7 +9,7 @@ Mainapp(app);
 dbConfig();
 
 const server = app.listen(Port, () => {
-  console.log(" Judith server is up and running", Port);
+  console.log("Server is up and running", Port);
 });
 
 process.on("uncaughtException", (err: Error) => {

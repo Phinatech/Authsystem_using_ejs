@@ -1,21 +1,21 @@
 import mongoose from "mongoose";
 
 interface iUser {
-  userNmae: string;
+  name: string;
   email: string;
   password: string;
   token: string;
   verified: boolean;
   OTP: string;
   RCNumber: string;
-  staffID: string;
+  staffID: {}[];
 }
 
 interface icompanyData extends iUser, mongoose.Document {}
 
 const companyModel = new mongoose.Schema(
   {
-    userName: {
+    name: {
       type: String,
     },
     email: {
@@ -36,6 +36,12 @@ const companyModel = new mongoose.Schema(
     verified: {
       type: String,
     },
+    staff: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+      },
+    ],
   },
   { timestamps: true }
 );
