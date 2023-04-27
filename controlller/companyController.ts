@@ -1,6 +1,10 @@
-import express from "express";
+import express, { Request, Response } from "express";
 
-const RegisterCompany = async (tr: type) => {
+const RegisterCompany = async (req: Request, res: Response) => {
   try {
-  } catch (error) {}
+  } catch (error) {
+    res.status(404).json({
+      message: "An error occured",
+    });
+  }
 };
